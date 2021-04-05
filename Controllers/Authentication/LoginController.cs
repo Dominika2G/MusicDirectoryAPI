@@ -45,7 +45,7 @@ namespace MusicDirectoryAPI.Controllers.Authentication
                     Subject = new ClaimsIdentity(new Claim[] {
                         new Claim("UserID", currentUser.Id.ToString())
                     }),
-                    Expires = DateTime.UtcNow.AddMinutes(1),
+                    Expires = DateTime.UtcNow.AddMinutes(30),
                     SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_appSettings.JWT)), SecurityAlgorithms.HmacSha256Signature)
                 };
 

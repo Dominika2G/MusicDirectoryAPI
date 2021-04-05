@@ -34,43 +34,26 @@ namespace MusicDirectoryAPI.Controllers.Albums
         #region GetAlbums
         [HttpGet]
         [Authorize]
-        public ActionResult<IEnumerable<Album>> GetAlbums(){
+        /*public  ActionResult<IEnumerable<Album>> GetAlbums(){
             string userId = User.Claims.First(c => c.Type == "UserID").Value;
-            return _databaseContext.Albums.Where(x => x.ProviderId == userId).ToList();
-         } 
-        /*public async Task<ActionResult<Object>> GetAlbums()
-        {
-            
-            //string userId = null;
-            string userId = "59e76131-c773-40a8-b705-8ab58ddbc9f3";
-            //string userId = User.Claims.First(c => c.Type == "UserID").Value;
-            if (userId == null)
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "500", Message = "Id is not exist" });
-            }
-            var user = await _userManager.FindByIdAsync(userId);
-            if(user == null)
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "500", Message = "User is not exist" });
-            }
-
-            var Albums =  _databaseContext.Albums.Where(x => x.ProviderId == userId).ToList();
-            return Ok(Albums);
-        }*/
-       /* public async Task<Object> GetAlbums()
+            return _databaseContext.Albums.Where(x => x.ProviderId == userId).ToList();   
+         } */
+        public ActionResult<IEnumerable<Album>> GetAlbums()
         {
             string userId = User.Claims.First(c => c.Type == "UserID").Value;
-            //string userId = "59e76131-c773-40a8-b705-8ab58ddbc9f3";
-            var user = await _userManager.FindByIdAsync(userId);
-
-            return new
+            //var user = await _userManager.FindByIdAsync(userId);
+            var list = _databaseContext.Albums.Where(x => x.ProviderId == userId);
+            return Ok(list.Select(p => new
             {
-                user.UserName,
-                user.Email,
-                userId
-            };
-            //return Ok(_databaseContext.Albums.Where(x => x.ProviderId == userId).ToList());
-        }*/
+                albumId = p.AlbumId,
+                author = p.Author,
+                provider = p.Provider.UserName,
+                providerId = p.ProviderId,
+                releaseData = p.ReleaseData,
+                title = p.Title,
+                version = p.Version
+            }).ToList());
+        }
         #endregion
     }
 }
