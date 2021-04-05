@@ -6,7 +6,6 @@ using Microsoft.IdentityModel.Tokens;
 using MusicDirectoryAPI.Models.Settings;
 using MusicDirectoryAPI.Models.Users;
 using System;
-using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;

@@ -1,10 +1,7 @@
 ﻿using MusicDirectoryAPI.Models.Tracks;
 using MusicDirectoryAPI.Models.Users;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace MusicDirectoryAPI.Models.Albums
 {

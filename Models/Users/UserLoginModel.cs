@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace MusicDirectoryAPI.Models.Users
+﻿namespace MusicDirectoryAPI.Models.Users
 {
     public class UserLoginModel
     {

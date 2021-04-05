@@ -1,15 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using MusicDirectoryAPI.Models.Albums;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace MusicDirectoryAPI.DAL.Configurations
 {
     public class AlbumConfiguration: IEntityTypeConfiguration<Album>
     {
+        #region Configure
         public void Configure(EntityTypeBuilder<Album> builder)
         {
             builder
@@ -17,5 +14,6 @@ namespace MusicDirectoryAPI.DAL.Configurations
                 .WithMany(a => a.Albums)
                 .HasForeignKey(p => p.ProviderId);
         }
+        #endregion
     }
 }
