@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using MusicDirectoryAPI.Models.Messages;
 using MusicDirectoryAPI.Models.Settings;
 using MusicDirectoryAPI.Models.Users;
 using System;
@@ -56,7 +57,7 @@ namespace MusicDirectoryAPI.Controllers.Authentication
             }
             else
             {
-                return BadRequest(new { message = "Password or login is incorrect" });
+                return BadRequest(new Response { Status = "Error", Message = "Password or login is incorrect" });
             }
         }
         #endregion

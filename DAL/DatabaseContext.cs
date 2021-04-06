@@ -29,6 +29,7 @@ namespace MusicDirectoryAPI.DAL
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfiguration(new AlbumConfiguration());
+            //modelBuilder.Seed();
         }
         #endregion
     }
