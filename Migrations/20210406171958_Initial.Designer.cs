@@ -10,8 +10,8 @@ using MusicDirectoryAPI.DAL;
 namespace MusicDirectoryAPI.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20210403205337_InitialDatabase")]
-    partial class InitialDatabase
+    [Migration("20210406171958_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
