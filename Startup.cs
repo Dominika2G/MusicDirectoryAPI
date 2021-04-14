@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using MusicDirectoryAPI.DAL;
 using MusicDirectoryAPI.Models.Settings;
 using MusicDirectoryAPI.Models.Users;
@@ -72,6 +73,19 @@ namespace MusicDirectoryAPI
                 options.Password.RequireUppercase = false;
                 options.Password.RequiredLength = 3;
             });
+
+            
+            services.AddSwaggerGen(current =>
+            {
+                current.SwaggerDoc("v0.1", new OpenApiInfo
+                {
+                    Version = "v0.1",
+                    Title = "Music Directory API",
+                    Description = "Music Directory API Documentation"
+                });
+            });
+            
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -83,6 +97,15 @@ namespace MusicDirectoryAPI
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(current =>
+            {
+                current.SwaggerEndpoint("/swagger/v0.1/swagger.json", "Music Directory API");
+                current.RoutePrefix = string.Empty;
+            });
+
             app.UseCors(builder =>
             builder.WithOrigins(Configuration["JWTSettings:CLIENT_URL"].ToString())
             .AllowAnyHeader()

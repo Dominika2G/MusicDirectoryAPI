@@ -14,26 +14,6 @@ namespace MusicDirectoryAPI.DAL.Configurations
     {
         public static void Seed(this ModelBuilder modelBuilder)
         {
-            /*modelBuilder.Entity<UserExtension>().HasData(
-                new UserExtension
-                {
-                    Id = "59e76131-c773-40a8-b705-8ab58ddbc9f3",
-                    UserName = "Akar",
-                    PasswordHash = "AQAAAAEAACcQAAAAEAjQyTJhYiw5gN+kf2SdGEBHXb7bWqrAHMjQ5Vwcwcs4/Gkdt15YhW0Vz+CIViafRw==",
-                    SecurityStamp = "MAYDUL6ZVPX7JU7HY3SRFZNQKVN76YQ4",
-                    ConcurrencyStamp = "6d4709e2-e133-4450-b3cc-8af8a85ff080",
-                    Email = "Akar@gmail.com"
-                },
-                new UserExtension
-                {
-                    Id = "91b560c8-22dd-4ade-bab8-852f488551c7",
-                    UserName = "BMGPoland",
-                    PasswordHash = "AQAAAAEAACcQAAAAEB+LKiXUSINk770orH8F5k7BSRVe7FJDBmjz2bBCsGemnzThyWW+U94Ygi+9vD2cEw==",
-                    SecurityStamp = "YEIX5R3WZRR3CXV3X6Y6L2S7JLJNZJMY",
-                    ConcurrencyStamp = "0c6805d9-280a-41ed-a9db-a421bffdd4cd",
-                    Email = "BMGPoland@gmail.com"
-                }
-                );*/
             modelBuilder.Entity<UserExtension>().HasData(
                 new UserExtension
                 {
