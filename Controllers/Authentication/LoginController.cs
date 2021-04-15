@@ -57,7 +57,7 @@ namespace MusicDirectoryAPI.Controllers.Authentication
             }
             else
             {
-                return BadRequest(new Response { Status = "Error", Message = "Password or login is incorrect" });
+                return NotFound(new Response { Status = "Error", Message = "Password or login is incorrect" });
             }
         }
         #endregion

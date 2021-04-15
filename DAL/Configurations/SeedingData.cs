@@ -12,6 +12,7 @@ namespace MusicDirectoryAPI.DAL.Configurations
 {
     public static class SeedingData
     {
+        #region Seed
         public static void Seed(this ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<UserExtension>().HasData(
@@ -75,10 +76,8 @@ namespace MusicDirectoryAPI.DAL.Configurations
                      new Track { TrackId = 25, TrackAuthor = "Ania Dąbrowska", Title = "Gangsta", ReleaseData = "Wrzesień 2004", Duration = "4:00", AlbumId = 4 },
                      new Track { TrackId = 26, TrackAuthor = "Ania Dąbrowska", Title = "Pamietać chcę", ReleaseData = "Wrzesień 2004", Duration = "3:28", AlbumId = 4 }
                      );
-
-
-
-
         }
+        #endregion
     }
 }
+

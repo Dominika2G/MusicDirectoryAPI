@@ -26,6 +26,7 @@ namespace MusicDirectoryAPI.Controllers.Albums
         #region GetAlbums
         [HttpGet]
         [Authorize]
+        //POST: api/AlbumRead
         public ActionResult<IEnumerable<Album>> GetAlbums()
         {
             string userId = User.Claims.First(c => c.Type == "UserID").Value;

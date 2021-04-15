@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MusicDirectoryAPI.DAL;
 using MusicDirectoryAPI.Models.Tracks;
 using System.Collections.Generic;
@@ -22,7 +23,8 @@ namespace MusicDirectoryAPI.Controllers.Tracks
 
         #region GetTracks
         [HttpGet("{id}")]
-        //[Authorize]
+        [Authorize]
+        //GET: api/Track/{id}
         public ActionResult<IEnumerable<Track>> Get(int id)
         {
             return _databaseContext.Tracks.Where(x => x.AlbumId == id).ToList();
